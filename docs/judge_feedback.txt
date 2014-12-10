@@ -1,0 +1,33 @@
+Judge Feedback:
+
+Very polished app. You could consider social networking integration with Google+ for instance to share results ("I passed!!!!") or shared comments.
+Calendar reminder to exam deadline would be nice as well.
+The tests could offer possibility to include multimedia items such as images or videos.
+------------------------------
+
+Judge Feedback:
+
+A pretty straightforward idea and only developed to a moderately basic level but what is there is for the most part polished and has some nice UI touches like the tool tip help bubbles on input fields and a overall visually clean and intuitive interface. Aside from adding additional functionality the app could be further improved by allowing lecturers to input lists of questions into the app (e.g. as a CSV file) rather than having to create them from scratch and enabling the ability to add links to relevant YouTube videos and course documents. From the student standpoint being able to see records of my scores connected to my profile (either publicly shared or private only to them) and more thought around the wider social aspects of adding comments to questions would also be good.
+------------------------------
+
+Judge Feedback:
+
+Could help if the Teacher view had an option to preview the test. 
+------------------------------
+
+Judge Feedback:
+
+I noticed that all students can see all lectures. I think the lecturer should be able to restrict the visibility of a revision to certain students (students who are actually in their class). In practice, the student will see thousands or millions of lectures to explore, otherwise.
+When joining a lecturer's class, the student is listed among students of the lectures before pressing the "Join" button. Also, you should add the lecture/class not the lecturer...However, "Join Lecturer's class" actually goes to the lecture's profile!! Most of the time, you want to join one class and not all the lecturer's classes.
+I think that your integration with google docs/drive could be improved. There should be no need for the user to press "Publish to my Google Drive"...This should be done more seamlessly and it's not necessary to provide access to the lectures from outside your app. Also, even if you continue to publish to google docs this way, there should be links to them from the app and they should be organized in folders.
+Final point, the lecturer is allowed to add all wrong answers without even one write answer, this should be disallowed.
+I couldn't find a tab for the student view to view his lectures that he joined.
+------------------------------
+
+Judge Feedback:
+
+I noticed that all students can see all lectures. I think the lecturer should be able to restrict the visibility of a revision to certain students (students who are actually in their class). In practice, the student will see thousands or millions of lectures to explore, otherwise.
+When joining a lecturer's class, the student is listed among students of the lectures before pressing the "Join" button. Also, you should add the lecture/class not the lecturer...However, "Join Lecturer's class" actually goes to the lecture's profile!! Most of the time, you want to join one class and not all the lecturer's classes.
+I think that your integration with google docs/drive could be improved. There should be no need for the user to press "Publish to my Google Drive"...This should be done more seamlessly and it's not necessary to provide access to the lectures from outside your app. Also, even if you continue to publish to google docs this way, there should be links to them from the app and they should be organized in folders.
+Final point, the lecturer is allowed to add all wrong answers without even one write answer, this should be disallowed.
+I couldn't find a tab for the student view to view his lectures that he joined.

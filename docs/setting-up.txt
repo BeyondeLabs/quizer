@@ -1,0 +1,8 @@
+SETTING UP Quizer App
+
++ After upload
+
++ Prepare datastore
+	- Add Institution Other
+	- Add list of courses (Wesley to help with list of courses)
+

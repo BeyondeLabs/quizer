@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{%block content %}
+<h2>{{lect_class.name}}</h2>
+<div class="intro">
+<strong>Course: </strong>{{lect_class.course.course}}<br/>
+<strong>Lecturer: </strong>{{lect_class.lecturer.title}} {{lect_class.lecturer.name}}, {{lect_class.lecturer.institution}} <br/>
+<strong>Describution: </strong>{{lect_class.description}}<br/>
+<strong>Period: </strong>{{lect_class.date_from.strftime("%B %d, %Y")}} to {{lect_class.date_to.strftime("%B %d, %Y")}}
+</div>
+{%if sess_user.user.type=='Student' %}
+<div class="join-class">
+{%if not joined %}
+	<a href="/class/join/{{lect_class.key()}}" id="join-class" class="btn btn-large btn-primary">Join Class</a>
+{%else %}
+	<a href="#" id="joined-class" class="btn btn-large btn-success">Joined Class</a>
+{%endif %}
+<span class="count">{{student_count}}</span> Students Joined
+</div>
+{%endif %}
+<div class="student-list">
+<h4>Students in this Class	</h4>
+<ul>
+{%for student in student_list %}
+<li>{{student.student.name}}</li>
+{%endfor %}
+</ul>
+</div>
+
+<h4>List of Revisions</h4>
+<ul>
+{%for rev in rev_list %}
+<li><a href="/explore/revision/{{rev.key()}}">{{rev.title}}</a> <em>created on {{rev.created.strftime("%B %d, %Y")}}</em></li>
+{%endfor %}
+</ul>
+
+{%endblock %}
+
+{%block quick_js %}
+<script>
+//ajax submit
+$(".join-class").on("click","a.btn-success",function(e){
+	e.preventDefault();
+});
+
+$('.join-class').on("click","a#join-class.btn-primary",function(e){
+    e.preventDefault();
+    var $a = $(this),
+	    url = $a.attr('href');
+
+    $.post(url,{},function(data){
+    	$a.text("Joined Class");
+    	$a.attr('href','#');
+    	$a.removeClass('btn-primary').addClass('btn-success');
+    	$(".student-list ul").append("<li>"+data+"</li>");
+    	$count = $("span.count");
+    	$count.text(eval($count.text())+1);
+    });
+    
+  });
+</script>  
+{%endblock %}

@@ -1,0 +1,40 @@
+
+
+
+<div class="lec-students">
+	<h3>List of Students</h3>
+	<ol class="users">
+		{%if students %}
+		{%for student in students %}
+		<li><a href="/explore/student/{{student.student.key()}}">{{student.student.name}}</a>
+			<!--a hack -->
+			{%if sess_user.user.key() == student.student.key() %}
+			<i class="icon-ok-sign"></i>
+			{%endif %}
+			</li>
+		{%endfor %}
+		{%endif %}
+	</ol>
+	<!--if is classmate profile, synch contacts -->
+	{%if sess_user.user.type == 'Student' %}
+	<div class="sync-contacts"
+	style="background:url(http://www.google.com/images/icons/product/googlemail-64.png) 0 0 no-repeat;
+	height:80px;padding-left: 70px;
+	">
+	<p>You can Sync your classmates contacts to make communication easier, <a href="#">learn more</a></p>
+	<a class="btn btn-large btn-primary" href="https://script.google.com/a/macros/test.quizer.info/s/AKfycbyqWardgP_AidMTAP_MZf9Pn9uTHXRR9VAIBrc3iChEO1PgbRQ/exec?lk={{lect.key()}}" target="_blank"><i class="icon-refresh"></i> Sync Classsmates Contacts</a> Please note that it might take some time, averagely <strong>50 seconds</strong>.
+	<p>Last time you added {{clog.num_added|default("0")}} contacts</p>
+	</div>
+	{%endif %}
+	{%if lect.key() == sess_user.user.key() %}
+	<div class="sync-contacts"
+	style="background:url(http://www.google.com/images/icons/product/googlemail-64.png) 0 0 no-repeat;
+	height:80px;padding-left: 70px;
+	">
+	<p>You can Sync your students' contacts to make communication easier, <a href="#">learn more</a></p>
+	<a class="btn btn-large btn-primary" href="https://script.google.com/a/macros/test.quizer.info/s/AKfycbwtEXUzLQKmsnTLo3oOR4gEXWOMbOibOhKw69XNb8-KFg-Tvw/exec" target="_blank"><i class="icon-refresh"></i> Sync Students Contacts</a> Please note that it might take some time, averagely <strong>50 seconds</strong>.
+	<p>Last time you added {{clog.num_added|default("0")}} contacts</p>
+	</div>
+	{%endif %}
+	
+</div>

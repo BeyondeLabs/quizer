@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{%block content %}
+<h1>Explore</h1>
+<div class="intro">
+	<p>Explore list of available classes, and join. The classes are listed according to your selected list of Course of interest.</p>
+</div>
+<div class="class-list">
+<ul>
+{%for class in class_list %}
+<li><a href="/class/page/{{class.key()}}">
+<h4>{{class.name}}</h4>
+<p>{{class.course.course}} / By {{class.lecturer.name}} / {{class.lecturer.institution}} <br/>
+	Created on {{class.created.strftime("%B %d, %Y") }}</p>
+</a>
+</li>
+{%endfor %}
+</ul>
+
+</div>
+
+
+{%endblock %}
+

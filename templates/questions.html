@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{%block login %}
+
+{% endblock %}
+
+{%block content %}
+
+<h1>Revisions</h1>
+
+<ul class="breadcrumb">
+	<li><a href="/revision/">My Revisions</a> <span class="divider">/</span></li>
+	<li><strong><a href="/revision/questions/{{rev.key()}}">{{rev.title}} Questions</a></strong> <span class="divider">/</span></li>
+	<li>Add Answers</li>
+</ul>
+
+<h3>{{rev.title}}</h3>
+<div class="intro2">
+<p>
+	<strong>Created on: </strong>{{rev.created.strftime("%B %d, %Y")}}
+	 / <strong>By: </strong>{{rev.user.title}} {{rev.user.name}}<br/>
+	<strong>Class: </strong><a href="/class/page/{{lect_class.key()}}">{{lect_class.name}}</a> / 
+	<strong>Course: </strong> {{lect_class.course.course}} </p>
+<p><em>{{rev.description}}</em></p>
+</div>
+
+<p><i class="icon-edit"></i> <strong>Click on a question to add/edit choices (answers)</strong></p>
+<ol class="questions">
+	{%for q in qs %}
+	<li><a href="/revision/questions/ans/{{q.key()}}">{{q.question}}</a>
+		<a qs-key="{{q.key()}}" class="del none" href="#">&times;</a>
+	</li>
+	{%endfor%}
+</ol>
+<p><strong>Add Question</strong></p>
+<div class="form">
+<form action="" method="post">
+<textarea name='question' placeholder="Question">
+</textarea>
+<input type="hidden" value="{{rev_key}}" name="revision" />
+<input type="submit" value="Add Question" />
+<a href="/revision/"> <i class="icon-arrow-left"></i> Back to Revisions</a>
+</form>
+
+</div>
+
+{%endblock %}
+

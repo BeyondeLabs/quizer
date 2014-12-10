@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{%block login %}
+
+{% endblock %}
+
+{%block content %}
+
+<h1>Revisions</h1>
+<ul class="breadcrumb">
+	<li><a href="/revision/"><strong>My Revisions</strong></a> <span class="divider">/</span></li>
+	<li>Add Questions <span class="divider">/</span></li>
+	<li>Add Answers</li>
+</ul>
+
+<h3>My Revision Sets</h3>
+<ol class="revision">
+{%for i in revs %}
+	<li><a href="/revision/questions/{{i.key()}}">{{i.title}}</a> / 
+		<em>Created on {{i.created.strftime("%B %d, %Y")}}</em>
+	</li>
+{%endfor %}
+</ol>
+<h4>Add new Revision Set</h4>
+<div class="form">
+<form action="" method="post">
+<input type='text' name='title' placeholder="Title"/>
+<select name="lect_class">
+	{%for class in class_list %}
+	<option value="{{class.key()}}">{{class.name}}</option>
+	{%endfor %}
+</select>
+<textarea name='description' placeholder="Any more information, instructions,
+links to reference material, keywords, etc">
+</textarea>
+<input type="submit" value="Create Revision" />
+</form>
+
+</div>
+
+{%endblock %}
+

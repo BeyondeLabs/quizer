@@ -1,0 +1,64 @@
+{%extends "base.html" %}
+{%block content %}
+
+<div class="profile-info">
+	<h3>Profile Info</h3>
+<strong>Name: </strong>
+{%if user.title != '' %}
+{{ user.title }}. 
+{%endif %}
+{{ user.name }}<br/>
+<strong>Joined:</strong> {{ user.joined.strftime("%B %d, %Y") }} <br/>
+<strong>Type:</strong> {{ user.type }} <br/>
+<strong>URL:</strong> {{ user.url }} <br/>
+<strong>Instritution: </strong> {{user.institution}} <br/>
+<strong>Course(s):</strong>
+{%for course in other_info.course_list %}
+&bull; {{course.course.course}}
+{%endfor %}
+	
+</div>
+
+{%if user.type == 'Lecturer' %}
+<div style="padding-top:10px;">
+	<a class="btn btn-large btn-primary" href="/explore/lecturer/{{user.key()}}"><i class="icon-user"></i> My Public Profile Page</a> As seen by others, especially your students.
+</div>
+<!--
+<div class="tasks">
+	<a href="#">Send invites to Students</a>
+	<a href="#">Recommend to fellow lecturers</a>
+</div>
+-->
+
+{%endif %}
+
+<div id="update-profile" class="js-hidden">
+<h3>Update Personal Information</h3>
+
+<div class="form">
+<form action="/profile" method="post">
+<input type="text" name="name" placeholder="Your name" value="{{user.name}}" />
+{%if user.type == 'Lecturer' %}
+<input type="text" name ="title" placeholder="Title" value="{{user.title}}" />
+{%endif %}
+<input type="text" name="url" placeholder="Your website, link, etc" value="{{user.url}}" />
+<input type="text" name="institution" placeholder="Name of Institution" value="{{user.institution}}" />
+<input type="text" name="courses" placeholder="List of Courses (comma separated)" value="{{user.courses}}" />
+<div><input type="submit" value="Update" /></div>
+</form>
+
+</div>
+
+
+</div>
+
+
+{%endblock %}
+
+{%block quick_js %}
+<script>
+$("#show-update-profile").click(function(){
+	$("#update-profile").show();
+});
+</script>
+{%endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{%block content %}
+<div id="explore">
+<h1>{{rev.title}} 
+<a style="float:right;" target="_blank" class="btn btn-large btn-success" href="https://script.google.com/a/macros/test.quizer.info/s/AKfycbxAb-bHDvav-_i-AzwkG72qT6JpZ329njT-QbbOXy4O6HiJZQ/exec?rk={{rev.key()}}">
+	<i class="icon-hdd"></i> Publish to my Google Drive</a></h1>
+<div class="intro">
+	<p><strong>Course: </strong>{{lect_class.course.course}} <strong>Class: </strong><a href="/class/page/{{lect_class.key()}}">{{lect_class.name}}</a></p>
+	<p><strong>Created by </strong><a href="/explore/lecturer/{{rev.user.key()}}">{{rev.user.title}} {{rev.user.name}}</a> on {{rev.created.strftime("%B %d, %Y")}}</p>
+	<p><em>{{rev.description}}</em></p>
+</div>
+
+<div class="attempt" id="attempt" data-akey="{{extra.akey}}">
+	<a title="Click here to start test" href="#" id="startattempt" data-rev="{{rev.key()}}" class="{{extra.class_hidden1}} btn btn-primary">Attempt Test</a>
+	<a title="Click here to retake test" href="#" id="retake" data-rev="{{rev.key()}}" class="{{extra.class_hidden2}} btn btn-primary">Retake Test</a>
+	{%if extra.score == "" %}
+	<span id="score">&larr; Click here to start test</span>
+	{%else %}
+	<span id="score">Current Score: <score>{{extra.score}}</score></span> <span id="started"><em>Test started on {{extra.started.strftime("%B %d, %Y ---- %p")}}</em></span>
+	{%endif %}
+</div>
+<p><span id="qcount" data="{{q_count}}">{{q_count}}</span> Questions</p>
+<ol class="questions">
+{%if qs %}
+{%for q in qs %}
+<li>{{q.question.question}}
+<ul class="answers">
+	{%for a in q.answers %}
+	<li><input type="radio" name="{{q.question.key()}}" data-key="{{a.key()}}" data-c="{{a.correct}}" /> <span class='answer'>{{a.answer}}</span></li>
+	{%endfor %}
+</ul>
+<div class="disc-summary">
+	<a href="#" class="toggle-discussion" title="Click to add or view comments"><i class="icon-comment"></i> {{q.comment_count}} Discussions</a>
+</div>	
+<div class="discussion">
+{%for c in q.comments %}
+<p>{{c.comment}} - <em>
+	<a href="/explore/{{c.user.type.lower()}}/{{c.user.key()}}">{{c.user.name}}</a>
+	</em></p>
+{%endfor %}
+<form class="question-comment-form" action="/explore/revision/question/comment" method="post">
+	<textarea name="comment"></textarea><br/>
+	<input type="hidden" name="rev_key" value="{{rev.key()}}" />
+	<input type="hidden" name="qkey" value="{{q.qkey}}" />
+	<input type="hidden" name="ukey" value="{{sess_user.user.key()}}" />
+	<input type="submit" class="btn btn-inverse" value="Post Comment">
+</form>
+</div>
+</li>
+{%endfor %}
+{%endif %}
+</ol>
+
+<div class="discussion">
+<h3>Discussions <span>&times;</span></h3>
+
+
+</div>
+
+
+</div>
+
+{%endblock %}
+
+
+

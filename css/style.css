@@ -1,0 +1,249 @@
+* {
+	font-family: 'Droid Sans', Helvetica, Verdana,sans-serif;
+	color: #555;
+}
+
+html {
+	height: 100%
+}
+
+h1{
+	
+}
+
+.hero-unit h1{
+	color: #336699;
+}
+.hero-unit h1 span.app{
+	color:#555;
+}
+.hero-unit h1 span.tm{
+	font-size: 20px;
+}
+
+div.main {
+	padding: 10px;
+	min-height: 400px;
+}
+
+
+footer{
+	padding:5px;
+	border-top:solid 2px #cecece;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.form{
+	width: 500px;
+}
+
+.from input[type=text], .form textarea, .form div{
+	display: block;
+	clear: both;
+}
+
+.form input[type=text], .form textarea,.form select{
+	width: 400px;
+	border: solid 1px #aaa;
+	padding: 5px;
+}
+
+.form label{
+	font-weight: bold;
+}
+
+.form label span{
+	font-weight: normal;
+	font-size: 90%;
+	font-style: italic;
+}
+
+
+/*new*/
+
+ol.answers{
+	list-style: upper-alpha;
+}
+
+ul.revision{
+	list-style: none;
+	padding:0;
+}
+
+ul.revision li{
+	border-bottom: dotted 1px #aaa;
+	margin-bottom: 3px;
+	padding:3px;
+	border-left:solid 5px #fefefe;
+}
+
+ul.revision li a:hover{
+	text-decoration: none;
+}
+
+ul.revision li:hover{
+	border-left:solid 5px #336699;
+}
+
+ol.questions{
+	
+}
+
+ol.questions > li{
+	margin-bottom:10px;
+}
+
+ul.answers{
+	list-style: none;
+}
+
+.answers span.correct{
+	color:#3a8c00;
+	font-weight: bold;
+}
+
+.answers span.wrong{
+	color:#d64316;
+}
+
+.js-hidden{
+	display: none;
+}
+
+.intro, .intro2{
+	background: #f1f1f1; 
+	border-left: solid 5px #aaa;
+	margin:5px;
+	margin-bottom:15px;
+	padding: 5px;
+}
+
+.intro2{
+	border:dashed 1px #aaa;
+	background:none;
+}
+
+.intro2 p,.intro2 p strong,.intro2 p em{
+	color: #888;
+	margin:0;
+}
+
+.intro p{
+	margin:0;
+}
+
+.sync-contacts{
+	margin-top: 10px;
+	border-top: dashed 1px #aaa;
+	padding: 5px;
+}
+
+.navbar .brand{
+	font-weight: bold;
+}
+
+.discussion{
+	border-left: solid 3px #aaa;
+	margin-left: 20px;
+	padding: 5px 10px;
+}
+
+.discussion p{
+	margin:0;
+	font-size: 11px;
+	color:#888;
+}
+
+.discussion textarea{
+	width:500px;
+	border:solid 1px #aaa;
+	height: 50px;
+	clear:both;
+}
+
+a.none,a.none:hover{
+	text-decoration: none;
+}
+
+a.del{
+	font-weight: bold;
+	color: #aaa;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+a.del:hover{
+	color: #d64316;
+}
+
+div.attempt{
+	padding:5px 0 10px;
+}
+
+score{
+	font-weight:bold;
+}
+
+.class-list ul{
+	list-style: none;
+	padding:5px;
+	margin:0;
+}
+
+.class-list ul li{
+	background: url(../img/icons/01/16x16/briefcase.png) 5px 5px no-repeat;
+	padding:5px;
+	padding-left:25px;
+	border-left:solid 3px #fff;
+}
+
+.class-list ul li a:hover{
+	text-decoration: none;
+}
+
+.class-list ul li:hover{
+	background-color: #fafafa;
+	border-left: solid 3px #aaa;
+}
+
+
+
+/* scrollbars */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+    height: 0px;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #eee;
+    -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #ccc;
+    -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    width: 50px;
+    background-color: #ccc;
+    -webkit-border-radius: 3px;
+}
+

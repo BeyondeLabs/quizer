@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{%block content %}
+
+<h1>Revisions</h1>
+
+<ul class="breadcrumb">
+	<li><a href="/revision/">My Revisions</a> <span class="divider">/</span></li>
+	<li><a href="/revision/questions/{{rev.key()}}">{{rev.title}} Questions</a> <span class="divider">/</span></li>
+	<li><strong>Add Answers</strong></li>
+</ul>
+
+<h4>{{q.question}}</h4> 
+<ol class='answers'>
+	{%for a in ans %}
+	<li>
+		{%if a.correct %}
+			<strong>{{a.answer}}</strong>
+		{% else %}
+			{{a.answer}}
+		{% endif %}
+		 <a ans-key="{{a.key()}}" href="#" class="del none">&times;</a>
+	</li>
+	{%endfor %}
+</ol>
+<p><strong>Add Answer</strong></p>
+<div class="form">
+<form action="" method="post">
+<textarea name="answer" placeholder="Answer">
+</textarea>
+<label for="correct">Correct <input type="checkbox" value="1" name="correct" /></label>
+<input class="btn btn-inverse" type="submit" value="Add Answer" />
+<a href="/revision/questions/{{rev.key()}}"> <i class="icon-plus-sign"></i>Add Another Question</a>
+</form>
+
+</div>
+
+{%endblock %}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  
+  {% block head %}
+    <title>{%block title %} QuizerApp &#187; Class Revision made easier &amp; democratized! {% endblock %}</title>
+    <meta name="description" content="Q&A Revision app submitted for Google Apps Developer Challenge">
+  	<meta name="viewport" content="width=device-width">
+  	
+    <!--<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>-->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap-responsive.min.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    
+  {% endblock %}
+  </head>
+  <body screen_capture_injected="true">
+  <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Quizer<span>App</span></a>
+          <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i>
+              Welcome
+              <span class="caret"></span>
+            </a>
+          </div>
+          <div class="nav-collapse">
+            <ul class="nav">
+              	{%block navigation %}
+		    		<li class="act-ive"><a href="/">Home</a></li>
+		    		<li><a href="/help">Help</a></li>
+		    	{% endblock %}
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+	<div class="container">
+		<div class="main">
+		{% block content %}
+			<div class="hero-unit">
+	            <h1>Quizer<span class="app">App</span><span class="tm">&reg;</span></h1>
+	            <h3>For Lecturers &amp; Students</h3>
+	            <p>An easy and fun way of revising whatever you have learnt or taught in class.<br/>
+	            	You get to network and discuss with your peers while revising, you can get the revision material
+	            	off-line (for print) or to your Google Drive, and <a href="#">many more</a>.
+	            </p>
+	            
+			      <div class="btn-group">
+		          <a class="btn btn-primary btn-large" data-toggle="dropdown" href="#"><i class="icon-user icon-white"></i> Sign Up »</a>
+		          <a class="btn btn-primary dropdown-toggle btn-large" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="/home/signup/lecturer"><i class="icon-briefcase"></i> As Lecturer</a></li>
+		            <li><a href="/home/signup/student"><i class="icon-book"></i> As Student</a></li>
+		          </ul>
+		        </div>
+		        
+          	</div>		
+
+		{% endblock %}
+		</div>
+    <footer>
+    	{% block footer %}
+    	<p>&copy; 2012 <a href="http://www.quizer.info" target="_blank">University of Quizer</a>* &bull; Submitted for <a href="http://www.google.com/events/gadc2012/" target="_blank">Google Apps Developer Challenge 2012</a><br/>
+    	<span>*Real name withheld because of the anonymity required for the Challenge</span></p>
+    	{% endblock %}
+    </footer>
+    
+   </div>
+   {% block js %}
+<!--optimized loading of jQuery with local fallback, trick from HTML5 boilerplate -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/jquery.js"><\/script>')</script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/custom.js"></script>
+  {% endblock %}
+  </body>
+</html>

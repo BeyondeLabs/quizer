@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+		{% block content %}
+			<h1>{{user_type}} Sign Up</h1>
+			<h2>Step 2</h2>
+			<p>Add courses of Interest</p>
+
+			<div class="courses">
+			<ul class="mycourses">
+				{%for course in my_courses %}
+				<li>{{course.course.course}} <a class="del" href="#" data-key="{{course.key()}}">&times;</a></li>
+				{%endfor %}
+			</ul>
+			<select name="course">
+				{%for course in course_list %}
+				<option value="{{course.key()}}">{{course.course}}</option>
+				{%endfor %}
+			</select>
+			<button id="addcourse" class="btn btn-inverse">Add</button>
+
+			<div><a href="/" class="btn btn-large btn-primary">Finish</a></div>
+		</div>
+
+		{% endblock %}
+
+{%block quick_js %}
+<script>
+  //console.log($(".courses select").val());
+  
+  	$("#addcourse").click(function(){
+  		var url = "/course/add/",
+  			course = $(".courses select").val();
+  		$.post(url,{'course':course},function(data){
+  			// console.log(data);
+  			if(data){
+  				var course = data.split("|");
+  				$(".mycourses").append("<li>"+course[0]+" <a class='del' href='#' data-key='"+course[1]+"'>&times;<a/></li>");	
+  			}
+  		});
+  	});
+  	
+  	$(".mycourses").on("click","a.del",function(){
+  		$a = $(this);
+  		var url = "/course/delete/",
+  			user_course_key = $a.attr('data-key');
+  		$.post(url,{'user_course_key':user_course_key},function(data){
+  			$a.parent().remove();
+  		});
+  	});
+  </script>
+
+{%endblock %}

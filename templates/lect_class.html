@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{%block content %}
+
+<h1>My Classes</h1>
+<ul id="myclasses">
+{%for class in class_list %}
+<li><a href="/class/page/{{class.key()}}">{{class.name}} / {{class.course.course}}</a></li>
+{%endfor %}
+</ul>
+
+<h2>Add New Class</h2>
+<div class="form">
+<form id="class-form" action="/class" method="post">
+<label>Name of Class</label>
+<input type="text" name="name" placeholder="Title with code, etc" />
+<label>Description of Class</label>
+<textarea name="description" placeholder="More information about the class"></textarea>
+<label>Select Course Category</label>
+<select name="course">
+	{%for course in course_list %}
+	<option value="{{course.key()}}">{{course.course}}</option>
+	{%endfor %}
+</select>
+<label>Class Duration</label>
+<div class="input-append date" data-date="" data-date-format="dd-mm-yyyy">
+	<input type="text" name="date_from" placeholder="Starting Date" value="" readonly="">
+	<span class="add-on"><i class="icon-calendar"></i></span>
+</div>
+<div class="input-append date" data-date="" data-date-format="dd-mm-yyyy">
+	<input type="text" name="date_to" placeholder="Ending Date" value="" readonly="">
+	<span class="add-on"><i class="icon-calendar"></i></span>
+</div>
+<div>
+<input type="submit" name="submit" value="Add Class" />
+</div>
+</form>
+
+</div>
+
+{%endblock %}
+
+{%block quick_js %}
+<script>
+//ajax submit
+$('#class-form').submit(function(e){
+    e.preventDefault();
+    var $form = $(this),
+	    url = $form.attr('action'),
+	    post_data = $form.serialize();
+
+    $.post(url,post_data,function(data){
+    	$("#myclasses").append(data);
+    	$form.find('input[type=text],textarea').val('');
+    });
+
+  });
+</script>  
+{%endblock %}
+

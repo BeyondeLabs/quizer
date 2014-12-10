@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{%block content %}
+<h1>{{stu.name}}</h1>
+<div class="intro">
+	<p><strong>Institution: </strong>{{stu.institution}}<br/>
+		<strong>Course(s) Learning: </strong>{{stu.courses}}<br/>
+		<strong>Joined: </strong>{{stu.joined.strftime("%B %d, %Y") }}
+	</p>
+</div>
+<div>
+	<!-- introduce some for of social networking later: Connect, or include in circle (Google+) -->	
+</div>
+
+<div class="activities">
+<h3>Activities</h3>
+<div>No activity logged currently</div>
+
+
+</div>
+
+{%endblock %}

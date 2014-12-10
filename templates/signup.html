@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+		{% block content %}
+			<h1>{{user_type}} Sign Up</h1>
+			<h2>Step 1</h2>
+			<div class="form">
+				<form action="" method="post">
+				<label for="name">Name: </label>
+				<input type="text" name="name" placeholder="Your name" value="{{form_cont.name}}"/>
+				{%if user_type=='Lecturer' %}
+				<label for="title">Title: </label>
+				<select name="title">
+					<option value="Dr.">Dr.</option>
+					<option value="Mr.">Mr.</option>
+					<option value="Ms.">Ms.</option>
+					<option value="Prof.">Prof.</option>
+				</select>
+				{%endif %}
+				<input type="hidden" name="type" value="{{user_type}}" />
+				<label for="url">URL <span>(Website,Google+,Twitter,Facebook, etc)</span></label>
+				<input type="text" name="url" placeholder="Your website, link, etc" value="{{form_cont.url}}" />
+				<label for="institution">Institution: </label>
+				{%for inst in inst_list %}
+					<input type="hidden" name="inst_key" value="{{inst.key()}}" />
+				{%endfor %}
+				<input type="text" name="institution" placeholder="Name of Institution" value="{{form_cont.institution}}" />
+	<!-- 			<label for="courses">Course(s): </label>
+				<input type="text" name="courses" placeholder="List of Courses (comma separated)" value="{{form_cont.courses}}" /> -->
+				<div><input type="checkbox" value="1" name="tac" /> I agree with the Terms &amp; Conditions QuizerApp.</div>
+				<div><input class="btn btn-large btn-primary" type="submit" value="Next" /></div>
+				</form>
+			</div>
+
+		{% endblock %}
+
+{%block quick_js %}
+<!--if need be, will be transfered to a .js file -->
+
+{%endblock %}

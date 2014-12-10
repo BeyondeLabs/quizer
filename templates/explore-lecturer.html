@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block content %}
+<h1>{{lect.title}} {{lect.name}}</h1>
+<div class="intro">
+	<p><strong>Institution: </strong>{{lect.institution}}<br/>
+		<strong>Course(s) Teaching: </strong>
+		{%for course in course_list %}
+		&bull; {{course.course.course}}
+		{%endfor %}
+		<br/>
+		<strong>Joined: </strong>{{lect.joined.strftime("%B %d, %Y") }}
+		<!--Rita: provide more stats on the lecturer, e.g. size of class -->
+	</p>
+</div>
+
+<div class="lec-classes">
+<h3>List of Classes</h3>
+<ul>
+{%for class in class_list %}
+<li><a href="/class/page/{{class.key()}}">{{class.name}}</a></li>
+{%endfor %}
+</ul>
+</div>
+
+<div class="lec-revision">
+
+</div>
+
+{%endblock %}
+
